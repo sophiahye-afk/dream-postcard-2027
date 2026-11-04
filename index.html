@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2027 꿈엽서 보호자 동의 결정</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--color-fg:#1E1B19;--color-fg-muted:#5E5752;--color-bg:#F7F4F1;--color-panel:#FFFFFF;--color-border-line:#E6DFD8;--color-ok:#1E7A46;--color-warn:#9A6200;--color-bad:#B42318;--cds-surface-popover:#FFFFFF;--font-anthropic-sans:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--color-fg:#F3EEEA;--color-fg-muted:#B4ABA4;--color-bg:#161311;--color-panel:#221E1B;--color-border-line:#3A3430;--color-ok:#6FD39A;--color-warn:#F2C060;--color-bad:#FF8A7E;--cds-surface-popover:#2A2522;color-scheme:dark}}
+body{margin:0;background:var(--color-bg);color:var(--color-fg)}
+#dash-root{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 56px}
+.dash-skeleton{opacity:.5}
+</style>
+<script src="d3.min.js"></script>
+<script>
+window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후원자": 15031, "만원기준": 31415, "기대후원금억_1to10": 19.8, "만원기준_1to10": 27911, "유지율6": 0.616}], "sian_scen": [{"키": "s1", "시안": "① 기존", "시나리오": "2026 실적", "구성": "2026 용지 그대로(선택 동의 묶음) + 접수 알림톡", "상태": "확정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": null, "확인탈락률": 0, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 공식 KPI(수거 202,116 · 후원 동의 156,623 · 후원자 15,031 · 1만원 기준 31,415)"}, {"키": "s2-opt", "시안": "② 현행 + 선택 동의 분리", "시나리오": "낙관", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.72, "확인탈락률": 0.02, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 72% · 콜 확인 탈락 2% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s2-mid", "시안": "② 현행 + 선택 동의 분리", "시나리오": "중간", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.65, "확인탈락률": 0.05, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 65% · 콜 확인 탈락 5% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s2-con", "시안": "② 현행 + 선택 동의 분리", "시나리오": "보수", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.55, "확인탈락률": 0.08, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 55% · 콜 확인 탈락 8% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s3-opt", "시안": "③ 알림톡 추가", "시나리오": "낙관", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.6, "진입자동의률": 0.8, "후원동의율": 0.4416, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 60% · 진입자 동의 80% · 리마인드·완료 알림톡 1인당 1건 추가"}, {"키": "s3-mid", "시안": "③ 알림톡 추가", "시나리오": "중간", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.5, "진입자동의률": 0.75, "후원동의율": 0.345, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 50% · 진입자 동의 75% · 리마인드·완료 알림톡 1인당 1건 추가"}, {"키": "s3-con", "시안": "③ 알림톡 추가", "시나리오": "보수", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.4, "진입자동의률": 0.65, "후원동의율": 0.2392, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 40% · 진입자 동의 65% · 리마인드·완료 알림톡 1인당 1건 추가"}], "promises": [{"번호": 1, "약속": "안내물에 주최·운영 / 인증 / 후원 역할 구분 표기", "출처": "1차 답변", "영역": "인쇄물", "D안반영": "리플릿 개편"}, {"번호": 2, "약속": "자율 참여 원칙, 미참여 학생 불이익 없음 명시", "출처": "1·2차 답변", "영역": "인쇄물", "D안반영": "리플릿·꿈엽서 용지"}, {"번호": 3, "약속": "'15명 이상 제출 시' 표현을 교육활동 격려 방식으로 수정", "출처": "1·2차 답변", "영역": "인쇄물·운영", "D안반영": "학급이벤트 기준·문구"}, {"번호": 4, "약속": "연필 문구가 1:1 매칭으로 오인되지 않도록 수정", "출처": "1차 내부 대응 메모", "영역": "인쇄물", "D안반영": "리플릿 개편"}, {"번호": 5, "약속": "필수·선택 동의의 문구와 시각 구분", "출처": "2차 답변", "영역": "인쇄물", "D안반영": "꿈엽서 용지 동의란"}, {"번호": 6, "약속": "법정대리인 작성·확인, 보호자 성명·관계·서명 보완", "출처": "보호자 답변(9/18)", "영역": "인쇄물", "D안반영": "꿈엽서 용지 보호자란"}, {"번호": 7, "약속": "접수 알림톡에서 동의 내용 확인·정정·신고", "출처": "보호자 답변(9/18)", "영역": "시스템", "D안반영": "알림톡 확인 버튼"}, {"번호": 8, "약속": "직접 동의 미확인 시 나눔·후원 안내 제한", "출처": "보호자 답변(9/18)", "영역": "시스템·콜", "D안반영": "확인자 우선 콜, 미확인 시 DB 제외"}, {"번호": 9, "약속": "콜 시작 시 본인·직접 동의 확인, 녹취 점검 강화", "출처": "보호자 답변(9/18)", "영역": "콜", "D안반영": "콜 첫머리 스크립트·샘플링"}]};
+(function(){
+  const calcs = {}, subs = [];
+  function get(id){ if (window.__DATA[id]) return {status:'ok', data: window.__DATA[id]}; if (calcs[id]) { if (!calcs[id].v) { const c = calcs[id]; c.v = c.fn.apply(null, c.inputs.map(i => get(i).data)); } return {status:'ok', data: calcs[id].v}; } return {status:'missing', data: []}; }
+  window.dash = { data: get, calc: (id, o) => { calcs[id] = o; }, onData: fn => { subs.push(fn); fn(); } };
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => subs.forEach(f => f()), 150); });
+})();
+</script></head><body><div id="dash-root">
+<style>
+.cv{--o:#F37021;--o2:rgba(243,112,33,.10);--o3:#C2551A;font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',var(--font-anthropic-sans),sans-serif;color:var(--color-fg);display:flex;flex-direction:column;gap:40px;line-height:1.6;font-size:15px}
+.cv *{box-sizing:border-box}
+.cv h1{font-size:26px;font-weight:800;margin:0;line-height:1.35;text-wrap:balance}
+.cv h2{font-size:20px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.cv h2 .n{width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;font-size:14px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.cv h3{font-size:16px;font-weight:800;margin:0 0 6px}
+.cv p{margin:0}
+.cv .muted{color:var(--color-fg-muted);font-size:13px}
+.cv .card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:14px;padding:18px 20px;min-width:0}
+.cv .hero{background:var(--o2);border:2px solid var(--o);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.cv .hero .eb{color:var(--o3);font-weight:800;font-size:13px}
+.cv .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:12px}
+.cv .kpi{background:var(--color-panel);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;border:1px solid var(--color-border-line)}
+.cv .kpi.on{border:2px solid var(--o)}
+.cv .kpi .k{font-size:13px;font-weight:700;color:var(--color-fg-muted)}
+.cv .kpi .v{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.25}
+.cv .kpi .d{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums}
+.cv .kpi .s{font-size:12px;color:var(--color-fg-muted)}
+.cv .dn{color:var(--color-bad)}.cv .up{color:var(--color-ok)}.cv .flat{color:var(--color-fg-muted)}
+.cv .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:800;border-radius:999px;padding:1px 9px;line-height:1.6;white-space:nowrap;vertical-align:middle}
+.cv .badge.fix{background:var(--color-fg);color:var(--color-bg)}
+.cv .badge.est{color:var(--o3);border:1.5px solid var(--o)}
+.cv .badge.rec{background:var(--o);color:#fff}
+.cv .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:16px}
+.cv .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:14px}
+.cv .shot{display:flex;flex-direction:column;gap:12px}
+.cv .shot.rec{border:2px solid var(--o)}
+.cv .shot .imgs{display:flex;gap:10px;align-items:flex-start}
+.cv .shot img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--color-border-line);background:#fff}
+.cv .shot .imgs .paper{flex:2.2;min-width:0}.cv .shot .imgs .phone{flex:1;min-width:0}
+.cv .shot .cap{font-size:12px;color:var(--color-fg-muted);margin-top:4px;text-align:center}
+.cv ul.pts{margin:0;padding-left:1.1em;line-height:1.75;font-size:14px}
+.cv .opt{display:flex;flex-direction:column;gap:0}
+.cv .opt.rec{border:2px solid var(--o)}
+.cv .opt .hd{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
+.cv .opt .hd b{font-size:18px}
+.cv .opt .what{font-size:13px;color:var(--color-fg-muted);margin-bottom:8px;min-height:2.9em}
+.cv .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 0;border-top:1px solid var(--color-border-line)}
+.cv .row .l{font-size:13px;color:var(--color-fg-muted)}
+.cv .row .r{text-align:right;font-variant-numeric:tabular-nums}
+.cv .row .r b{font-size:17px}
+.cv .row .r small{display:block;font-size:12px;font-weight:800}
+.cv .row.main{background:var(--o2);margin:0 -10px;padding:10px;border-radius:10px;border-top:0}
+.cv .row.main .l{color:var(--o3);font-weight:800}
+.cv .row.main .r b{font-size:24px}
+.cv .seg{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--color-border-line);border-radius:999px;background:var(--color-bg)}
+.cv .seg button{font:inherit;font-size:13px;font-weight:800;border:0;background:transparent;color:var(--color-fg-muted);padding:6px 14px;border-radius:999px;cursor:pointer;min-height:32px}
+.cv .seg button[aria-pressed="true"]{background:var(--o);color:#fff}
+.cv .seg button:focus-visible,.cv summary:focus-visible{outline:2px solid var(--o);outline-offset:2px}
+.cv .chartbox{position:relative;min-height:250px}
+.cv .tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover,var(--color-panel));border:1px solid var(--color-border-line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:6px 10px;font-size:12px;opacity:0;white-space:nowrap;z-index:2}
+.cv .tip .t{color:var(--color-fg-muted)}
+.cv ol.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:10px}
+.cv ol.steps li{background:var(--color-panel);border:1px solid var(--color-border-line);border-top:3px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px}
+.cv ol.steps .w{display:block;font-size:12px;font-weight:800;color:var(--o3)}
+.cv details{border:1px solid var(--color-border-line);border-radius:14px;background:var(--color-panel)}
+.cv summary{cursor:pointer;padding:14px 18px;font-weight:800;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.cv summary::-webkit-details-marker{display:none}
+.cv summary::after{content:"펼치기 ▾";font-size:12px;color:var(--o3)}
+.cv details[open] summary::after{content:"접기 ▴"}
+.cv details .in{padding:0 18px 18px}
+.cv .tw{overflow-x:auto}
+.cv table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.cv th,.cv td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--color-border-line);vertical-align:top}
+.cv th{font-size:12px;color:var(--color-fg-muted);font-weight:800;white-space:nowrap}
+.cv td.r,.cv th.r{text-align:right;white-space:nowrap}
+.cv tr.now td{background:var(--o2)}
+.cv .note{font-size:12px;color:var(--color-fg-muted);line-height:1.6}
+.cv .fail{display:flex;align-items:center;justify-content:center;min-height:200px;color:var(--color-fg-muted);font-size:13px}
+.cv [data-dash-source-state=refreshing]{opacity:.5}
+.cv .tool{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;text-decoration:none;color:var(--color-fg);background:var(--o2);border:2px solid var(--o);border-radius:16px;padding:18px 22px}
+.cv .tool b{font-size:18px;font-weight:800;display:block}
+.cv .tool span.go{background:var(--o);color:#fff;font-weight:800;border-radius:999px;padding:10px 20px;white-space:nowrap}
+.cv .tool:hover span.go,.cv .tool:focus-visible span.go{background:var(--o3)}
+.cv .tool:focus-visible{outline:2px solid var(--o);outline-offset:3px}
+.cv .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.cv .lbtn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border-radius:999px;font-weight:800;font-size:14px;text-decoration:none;border:2px solid var(--o);color:var(--o3);background:var(--color-panel)}
+.cv .lbtn.pri{background:var(--o);color:#fff}
+.cv .lbtn:hover{filter:brightness(.95)}
+.cv .lbtn:focus-visible{outline:2px solid var(--o);outline-offset:3px}
+.cv .talkbig{width:min(100%,340px);margin:4px auto 0}
+.cv .stack{display:flex;flex-direction:column;gap:20px}
+.cv .stack .shot{padding:22px 24px}
+.cv .stack .shot h3{font-size:18px}
+.cv .stack .shot img{max-width:880px;margin:0 auto}
+.cv .stack ul.pts{font-size:15px}
+.cv .side{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.cv .side .paper{flex:2.4 1 26rem;min-width:0}
+.cv .side .phone{flex:1 1 13rem;min-width:0;max-width:300px;margin:0 auto}
+.cv .sv{display:flex;flex-direction:column;gap:22px}
+.cv .svc{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:18px;overflow:hidden}
+.cv .svc.rec{border:2px solid var(--o)}
+.cv .svh{display:flex;gap:14px;align-items:center;padding:16px 22px;background:var(--o2);border-bottom:1px solid var(--color-border-line)}
+.cv .svc:not(.rec) .svh{background:var(--color-bg)}
+.cv .svn{width:42px;height:42px;border-radius:12px;background:var(--o);color:#fff;font-size:22px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.cv .svc:not(.rec) .svn{background:var(--color-fg-muted)}
+.cv .svh b{font-size:19px;font-weight:800}
+.cv .svh p{margin:2px 0 0;font-size:14px;color:var(--color-fg-muted)}
+.cv .svb{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:22px;padding:22px;align-items:start}
+.cv .svb.three-col{grid-template-columns:minmax(0,2.2fr) minmax(0,.9fr) minmax(0,1fr)}
+@media (max-width:900px){.cv .svb,.cv .svb.three-col{grid-template-columns:minmax(0,1fr)}.cv .fig.ph{max-width:300px;margin:0 auto}}
+.cv .fig{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.cv .fig figcaption{font-size:12.5px;color:var(--color-fg-muted);text-align:center}
+.cv .zoom{display:block;padding:0;border:1px solid var(--color-border-line);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in;width:100%;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.cv .zoom img{display:block;width:100%;height:auto}
+.cv .zoom:hover{border-color:var(--o)}
+.cv .zoom:focus-visible{outline:2px solid var(--o);outline-offset:3px}
+.cv ol.co{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:co}
+.cv ol.co li{counter-increment:co;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:10px;padding:12px 14px;border-radius:12px;background:var(--color-bg);border:1px solid var(--color-border-line)}
+.cv ol.co li::before{content:counter(co);grid-row:span 2;width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.cv ol.co li b{font-size:15.5px;line-height:1.4}
+.cv ol.co li span{font-size:13px;color:var(--color-fg-muted);line-height:1.5}
+.cv ol.co li.warn{background:rgba(180,35,24,.06);border-color:transparent}
+.cv ol.co li.warn::before{background:var(--color-bad)}
+.cv .lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.8);display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:56px 16px 24px}
+.cv .lb[hidden]{display:none}
+.cv .lb img{max-width:min(1280px,100%);height:auto;border-radius:8px;background:#fff}
+.cv .lbx{position:fixed;top:14px;right:16px;font:inherit;font-weight:800;font-size:14px;border:0;border-radius:999px;padding:8px 16px;background:#fff;color:#1E1B19;cursor:pointer}
+</style>
+
+<div class="cv">
+
+  <header class="hero" id="top">
+    <span class="eb">2027 꿈엽서그리기대회 · 보호자 동의 방식 결정</span>
+    <h1>② 현행 + 선택 동의 분리로 갑니다. 지금 용지 틀은 그대로 두고, 묶여 있던 선택 동의만 항목별로 나눕니다.</h1>
+    <p>2026 용지는 '후원 안내 전화' 동의가 다른 동의와 한 칸에 묶여 있어 그대로 쓸 수 없어요. 고친 두 안 가운데 ②가 <b>추가 비용 없이 후원 감소가 가장 적습니다.</b></p>
+    <div class="kpis">
+      <div class="kpi"><span class="k">2026 후원 약정 (확정)</span><span class="v"><span data-source="sian_calc" data-where="키=s1" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</span><span class="s">꿈엽서로 받은 후원 약정 건수</span></div>
+      <div class="kpi on"><span class="k">② 현행 + 선택 동의 분리 <span class="badge rec">추천</span> <span class="badge est">예상</span></span><span class="v"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</span><span class="d dn"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> · 추가 비용 없음</span></div>
+      <div class="kpi"><span class="k">③ 알림톡 추가 <span class="badge est">예상</span></span><span class="v"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</span><span class="d dn"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> · 알림톡 +<span data-source="sian_calc" data-where="키=s3-mid" data-field="비용증감만원" data-fmt="int" class="dash-skeleton">—</span>만원</span></div>
+    </div>
+  </header>
+
+  <section id="sec-shots">
+    <h2><span class="n">1</span>시안 보기 <span class="muted" style="font-weight:500">그림을 누르면 크게 보여요</span></h2>
+    <div class="sv">
+      <article class="svc rec">
+        <header class="svh"><span class="svn">②</span><div><b>현행 + 선택 동의 분리</b> <span class="badge rec">추천</span><p>용지 틀은 그대로, 동의만 항목별로 나눠요</p></div></header>
+        <div class="svb">
+          <figure class="fig"><button type="button" class="zoom" data-img="img-s2" aria-label="② 용지 크게 보기"><img id="img-s2" alt="② 현행 + 선택 동의 분리 꿈엽서 뒷면 시안"></button><figcaption>꿈엽서 뒷면 위쪽 절반 (아래 절반은 그림 칸)</figcaption></figure>
+          <ol class="co">
+            <li><b>동의를 항목별로 따로</b><span>필수 1개 + 선택 3개, 칸마다 체크해요</span></li>
+            <li><b>'전체 동의' 한 칸</b><span>주황 띠로 강조해서 한 번에 체크할 수 있어요</span></li>
+            <li><b>후원 안내는 눈에 띄게</b><span>누가 전화하는지 굵은 글씨·밑줄로 보여줘요</span></li>
+            <li><b>부모가 직접 썼다는 체크</b><span>보호자 작성란에 한 줄 추가</span></li>
+          </ol>
+        </div>
+      </article>
+      <article class="svc">
+        <header class="svh"><span class="svn">③</span><div><b>알림톡 추가</b><p>용지엔 필수 동의만, 나머지는 보호자 휴대폰에서 받아요</p></div></header>
+        <div class="svb three-col">
+          <figure class="fig"><button type="button" class="zoom" data-img="img-s3" aria-label="③ 용지 크게 보기"><img id="img-s3" alt="③ 알림톡 추가 꿈엽서 뒷면 시안"></button><figcaption>꿈엽서 뒷면 위쪽 절반</figcaption></figure>
+          <figure class="fig ph"><button type="button" class="zoom" data-img="img-talk" aria-label="알림톡 화면 크게 보기"><img id="img-talk" alt="접수 확인 알림톡 화면"></button><figcaption>접수 후 보호자 휴대폰</figcaption></figure>
+          <ol class="co">
+            <li><b>용지엔 필수 동의 1개</b><span>글씨 칸이 커져서 쓰기 쉬워요</span></li>
+            <li><b>나머지 동의는 알림톡에서</b><span>이름 오타도 휴대폰에서 고쳐요</span></li>
+            <li class="warn"><b>동의한 사람이 크게 줄어요</b><span>보호자가 직접 링크를 눌러야 해요</span></li>
+          </ol>
+        </div>
+      </article>
+    </div>
+    <div class="btns">
+      <a class="lbtn" href="drafts.html">시안 원본 및 알림톡 전체 보기 →</a>
+      <a class="lbtn pri" href="calculator.html">시안 계산기 열기 →</a>
+    </div>
+    <div class="lb" id="lb" hidden><button type="button" class="lbx" aria-label="닫기">닫기 ✕</button><img id="lb-img" alt=""></div>
+  </section>
+
+  <section id="sec-compare">
+    <h2><span class="n">2</span>세 가지 안 비교 <span class="muted" style="font-weight:500">2026년 실적과 비교</span></h2>
+    <div class="three">
+      <div class="card opt">
+        <div class="hd"><b>① 2026 그대로</b><span class="badge fix">2026 실적</span></div>
+        <p class="what">용지를 바꾸지 않아요. 하지만 동의가 묶여 있어 법에 맞지 않아 <b>쓸 수 없어요.</b></p>
+        <div class="row main"><span class="l">후원 약정</span><span class="r"><b><span data-source="sian_calc" data-where="키=s1" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="flat">기준</small></span></div>
+        <div class="row"><span class="l">후원 안내 동의한 보호자</span><span class="r"><b><span data-source="sian_calc" data-where="키=s1" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b><small class="flat"><span data-source="sian_calc" data-where="키=s1" data-field="DB" data-fmt="int" class="dash-skeleton">—</span>명</small></span></div>
+        <div class="row"><span class="l">추가 비용</span><span class="r"><b>없음</b></span></div>
+        <div class="row"><span class="l">법 위반 위험</span><span class="r"><b class="dn">높음</b></span></div>
+      </div>
+      <div class="card opt rec">
+        <div class="hd"><b>② 현행 + 선택 동의 분리</b><span class="badge rec">추천</span><span class="badge est">예상</span></div>
+        <p class="what">용지 틀·운영은 그대로, 동의만 항목별로 나누고 콜 첫마디에 보호자인지 확인해요.</p>
+        <div class="row main"><span class="l">후원 약정</span><span class="r"><b><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="dn"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> (<span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감" data-fmt="sman" class="dash-skeleton">—</span>건)</small></span></div>
+        <div class="row"><span class="l">후원 안내 동의한 보호자</span><span class="r"><b><span data-source="sian_calc" data-where="키=s2-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b><small class="flat"><span data-source="sian_calc" data-where="키=s2-mid" data-field="DB" data-fmt="int" class="dash-skeleton">—</span>명</small></span></div>
+        <div class="row"><span class="l">추가 비용</span><span class="r"><b>없음</b><small class="flat">문구 수정은 기존 인쇄비 안</small></span></div>
+        <div class="row"><span class="l">법 위반 위험</span><span class="r"><b class="up">낮음</b></span></div>
+      </div>
+      <div class="card opt">
+        <div class="hd"><b>③ 알림톡 추가</b><span class="badge est">예상</span></div>
+        <p class="what">용지엔 필수 동의만, 나머지는 보호자 휴대폰 알림톡에서 받아요.</p>
+        <div class="row main"><span class="l">후원 약정</span><span class="r"><b><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="dn"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> (<span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감" data-fmt="sman" class="dash-skeleton">—</span>건)</small></span></div>
+        <div class="row"><span class="l">후원 안내 동의한 보호자</span><span class="r"><b><span data-source="sian_calc" data-where="키=s3-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b><small class="flat"><span data-source="sian_calc" data-where="키=s3-mid" data-field="DB" data-fmt="int" class="dash-skeleton">—</span>명</small></span></div>
+        <div class="row"><span class="l">추가 비용</span><span class="r"><b>+<span data-source="sian_calc" data-where="키=s3-mid" data-field="비용증감만원" data-fmt="int" class="dash-skeleton">—</span>만원</b><small class="flat">알림톡 · 개발비 별도</small></span></div>
+        <div class="row"><span class="l">법 위반 위험</span><span class="r"><b class="up">가장 낮음</b></span></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:8px">②③의 숫자는 <b>예상치</b>예요(아래 3번의 가정으로 계산). 2027 접수가 시작되면 실제 숫자로 바꿔요.</p>
+  </section>
+
+  <section id="sec-why">
+    <h2><span class="n">3</span>왜 후원이 줄어드나</h2>
+    <div class="two">
+      <div class="card">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px"><h3 style="margin:0">후원 약정이 줄어드는 단계</h3>
+          <div class="seg" role="group" aria-label="볼 안" id="wf-pick"><button type="button" data-k="s2-mid" aria-pressed="true">② 현행 + 선택 동의 분리</button><button type="button" data-k="s3-mid" aria-pressed="false">③ 알림톡 추가</button></div></div>
+        <div class="chartbox" id="wf" data-source="sian_calc"></div>
+      </div>
+      <div class="card">
+        <h3>예상 방법</h3>
+        <p style="font-size:14px">후원 약정 = 꿈엽서 수 × <b>후원 안내에 동의한 비율</b> × <b>콜에서 보호자 확인된 비율</b> × 전화한 사람 중 후원한 비율(2026과 같은 9.6%)</p>
+        <ul class="pts" style="margin-top:10px">
+          <li><b>②</b> 2026엔 동의가 묶여 있어 <span data-source="sian_calc" data-where="키=s1" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span>가 동의했어요. 따로 고르게 하면 원치 않는 분은 빼고 체크해서 <span data-source="sian_calc" data-where="키=s2-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span>로 내려간다고 봤어요. 콜 첫마디 확인에서 <span data-source="sian_calc" data-where="키=s2-mid" data-field="확인탈락률" data-fmt="pct" class="dash-skeleton">—</span>가 더 빠져요.</li>
+          <li><b>③</b> 보호자가 알림톡을 받아(92%) 링크를 누르고(50%) 동의해야(75%) 해요. 셋을 곱하면 <span data-source="sian_calc" data-where="키=s3-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span>만 남아요.</li>
+        </ul>
+        <p class="note" style="margin-top:10px">동의 비율은 실제로 재 본 숫자가 아니라 가정이에요. ②는 잘되면 <span data-source="sian_calc" data-where="키=s2-opt" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span>, 안되면 <span data-source="sian_calc" data-where="키=s2-con" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span>까지 볼 수 있어요. 직접 동의한 보호자는 후원을 덜 끊을 수 있어 실제 감소는 더 작을 수도 있어요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec-todo">
+    <h2><span class="n">4</span>할 일</h2>
+    <ol class="steps">
+      <li><span class="w">지금</span>콜 첫마디에 보호자 본인인지 확인 (2026 남은 명단부터)</li>
+      <li><span class="w">12월</span>② 용지·리플릿 문구 확정 → 법무 확인 → 인쇄</li>
+      <li><span class="w">1월</span>동의 안내 QR 페이지를 홈페이지에 올리기</li>
+      <li><span class="w">2027 접수 중</span>동의 비율·콜 확인 탈락을 매주 확인</li>
+    </ol>
+  </section>
+
+  <section id="sec-legal">
+    <h2><span class="n">5</span>법무팀에 물어볼 것</h2>
+    <div class="card">
+      <ul class="pts">
+        <li>'부모(법정대리인) 체크 + 콜 첫마디 확인'으로 14세 미만 보호자 동의 확인이 충분한지</li>
+        <li>'전체 동의' 한 칸(필수·선택 모두)과 강조 방식이 괜찮은지</li>
+        <li>보호자 확인이 안 된 연락처는 언제까지 갖고 있다가 지워야 하는지</li>
+        <li>작품 '무상 양도' 표현을 '이용 허락'으로 바꾼 문구 확인</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="sec-more" style="display:flex;flex-direction:column;gap:10px">
+    <h2><span class="n">+</span>참고 자료</h2>
+    <details>
+      <summary>예상 숫자 전체와 가정</summary>
+      <div class="in">
+        <div class="tw"><table id="t-sian" data-source="sian_calc" data-row-key="키">
+          <thead><tr><th data-field="시안">안</th><th data-field="시나리오">경우</th><th data-field="상태">구분</th><th data-field="동의율" class="r">동의 비율</th><th data-field="DB" class="r">동의 보호자</th><th data-field="플레지" class="r">후원 약정</th><th data-field="플레지증감률" class="r">2026 대비</th><th data-field="알림톡비용만원" class="r">알림톡 비용(만원)</th><th data-field="가정">가정</th></tr></thead>
+          <tbody></tbody></table></div>
+        <p class="note" style="margin-top:8px"><b>후원 약정(플레지)</b> 콜로 받은 후원 약속 건수, 금액과 상관없이 1건 · <b>%p</b> 비율끼리의 차이(77%→65%는 12%p 감소) · 알림톡 단가 9원은 예상치, 계약 단가 확인 필요</p>
+      </div>
+    </details>
+    <details>
+      <summary>교육부 민원 답변에서 약속한 것</summary>
+      <div class="in"><div class="tw"><table id="t-prom" data-source="promises" data-row-key="번호">
+        <thead><tr><th data-field="번호">번호</th><th data-field="약속">약속</th><th data-field="출처">어디서</th><th data-field="영역">영역</th></tr></thead>
+        <tbody></tbody></table></div></div>
+    </details>
+  </section>
+  <a class="tool" id="tool-calc" href="calculator.html">
+    <div><b>시안 계산기</b><p class="muted" style="margin-top:2px">2026 꿈엽서에서 고칠 곳을 하나씩 체크하면, 시안과 2027 예상 후원 약정이 바로 바뀌어요. 동의 비율도 직접 조절해 볼 수 있어요.</p></div>
+    <span class="go">계산기 열기 →</span>
+  </a>
+</div>
+
+<script src="img_s2.js"></script>
+<script src="img_s3.js"></script>
+<script src="img_talk.js"></script>
+
+<script>
+dash.calc('sian_calc', {
+  inputs: ['base_2026', 'sian_scen'],
+  title: '세 가지 안 예상 실적',
+  description: '꿈엽서 수 × 동의 비율 = 동의 보호자, × (1−콜 확인 탈락) × 2026 후원 비율 = 후원 약정, 꿈엽서 수 × 알림톡 건수 × 단가 = 알림톡 비용',
+  fn: (base_2026, sian_scen) => {
+    const b = base_2026[0];
+    const 수거 = +b.수거, conv = +b.후원자 / +b.후원동의;
+    const b플레지 = +b.후원자, b동의율 = +b.후원동의 / 수거, bDB = +b.후원동의;
+    const s1 = sian_scen.find(s => s.키 === 's1');
+    const b비용 = Math.round(수거 * (1 + +s1.추가알림톡_인당) * +s1.알림톡단가원 / 10000);
+    return sian_scen.map(s => {
+      const base = s.키 === 's1';
+      const 동의율 = base ? b동의율 : +s.후원동의율;
+      const DB = base ? bDB : Math.round(수거 * 동의율);
+      const 탈락 = +s.확인탈락률;
+      const 분리플레지 = Math.round(DB * conv);
+      const 플레지 = base ? b플레지 : Math.round(DB * (1 - 탈락) * conv);
+      const 알림톡비용만원 = Math.round(수거 * (1 + +s.추가알림톡_인당) * +s.알림톡단가원 / 10000);
+      return { 키: s.키, 시안: s.시안, 시나리오: s.시나리오, 상태: s.상태, 가정: s.가정, 동의율, DB, 확인탈락률: 탈락,
+        플레지, 플레지증감: 플레지 - b플레지, 플레지증감률: 플레지 / b플레지 - 1,
+        알림톡비용만원, 비용증감만원: 알림톡비용만원 - b비용,
+        동의율효과: base ? 0 : 분리플레지 - b플레지, 탈락효과: base ? 0 : 플레지 - 분리플레지 };
+    });
+  }
+});
+</script>
+
+<script>
+(function () {
+  const F = d3.format(',');
+  const tri = v => v > 0.00005 ? '▲ ' : v < -0.00005 ? '▼ ' : '';
+  const FMT = {
+    pct: v => d3.format('.1%')(v),
+    srate: v => tri(v) + d3.format('.1%')(Math.abs(v)),
+    int: v => F(Math.round(v)),
+    sman: v => (v > 0 ? '+' : v < 0 ? '−' : '') + F(Math.abs(Math.round(v)))
+  };
+  const root = document.querySelector('.cv');
+  const imgs = window.__cvImg || {};
+  [['img-s2', 's2'], ['img-s3', 's3'], ['img-talk', 'talk']].forEach(([id, k]) => { const el = document.getElementById(id); if (el && imgs[k]) el.src = imgs[k]; });
+  const lb = document.getElementById('lb'), lbi = document.getElementById('lb-img');
+  const closeLb = () => { lb.hidden = true; lbi.removeAttribute('src'); };
+  document.querySelectorAll('.cv .zoom').forEach(b => b.addEventListener('click', () => { const src = document.getElementById(b.dataset.img).src; if (!src) return; lbi.src = src; lbi.alt = document.getElementById(b.dataset.img).alt; lb.hidden = false; lb.querySelector('.lbx').focus(); }));
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
+
+  function fill() {
+    root.querySelectorAll('span[data-fmt]').forEach(el => {
+      const r = dash.data(el.getAttribute('data-source'));
+      if (r.status !== 'ok') { el.textContent = '—'; el.classList.toggle('dash-skeleton', r.status === 'loading'); return; }
+      const [c, v] = el.getAttribute('data-where').split('=');
+      const row = r.data.find(x => String(x[c]) === v);
+      el.classList.remove('dash-skeleton');
+      el.textContent = row ? FMT[el.getAttribute('data-fmt')](+row[el.getAttribute('data-field')]) : '—';
+    });
+  }
+
+  function table(sel, id, cols, fmt, mark) {
+    const t = document.querySelector(sel); if (!t) return;
+    const tb = t.querySelector('tbody'); tb.textContent = '';
+    const r = dash.data(id);
+    if (r.status !== 'ok') { const td = tb.insertRow().insertCell(); td.colSpan = cols.length; td.textContent = r.status === 'loading' ? '불러오는 중' : '불러오지 못했어요'; return; }
+    r.data.forEach(row => {
+      const tr = tb.insertRow(); if (mark) mark(tr, row);
+      cols.forEach(c => { const td = tr.insertCell(); const f = fmt[c]; td.textContent = f ? f.f(row[c], row) : String(row[c] ?? ''); if (f && f.r) td.className = 'r'; if (c === '가정') { td.style.minWidth = '16rem'; td.style.color = 'var(--color-fg-muted)'; } });
+    });
+  }
+
+  function tipOf(box) { let t = box.querySelector('.tip'); if (!t) { t = document.createElement('div'); t.className = 'tip'; box.appendChild(t); } return t; }
+  function showTip(box, ev, lines) {
+    const t = tipOf(box); t.textContent = '';
+    lines.forEach((l, i) => { const d = document.createElement('div'); if (i) d.className = 't'; d.textContent = l; t.appendChild(d); });
+    const br = box.getBoundingClientRect(); t.style.opacity = 1;
+    let x = ev.clientX - br.left + 12; const w = t.offsetWidth; if (x + w > br.width) x = Math.max(0, ev.clientX - br.left - w - 12);
+    t.style.left = x + 'px'; t.style.top = Math.max(0, ev.clientY - br.top - 10) + 'px';
+  }
+
+  let wfKey = 's2-mid';
+  function drawWf() {
+    const box = document.getElementById('wf'); if (!box) return;
+    const r = dash.data('sian_calc');
+    box.textContent = '';
+    if (r.status !== 'ok') { if (r.status === 'loading') box.classList.add('dash-skeleton'); else { const d = document.createElement('div'); d.className = 'fail'; d.textContent = '불러오지 못했어요'; box.appendChild(d); } return; }
+    box.classList.remove('dash-skeleton');
+    const s1 = r.data.find(x => x.키 === 's1'), s = r.data.find(x => x.키 === wfKey);
+    const v0 = +s1.플레지, ef = +s.동의율효과, vEnd = +s.플레지;
+    const steps = [
+      { n: '2026 실적', a: 0, b: v0, kind: 'total', note: '확정' },
+      { n: '동의 비율 감소', a: v0, b: v0 + ef, kind: 'delta', note: FMT.pct(+s1.동의율) + ' → ' + FMT.pct(+s.동의율) },
+      { n: '콜 확인 탈락', a: v0 + ef, b: vEnd, kind: 'delta', note: '보호자 확인 안 됨 ' + FMT.pct(+s.확인탈락률) },
+      { n: s.시안.slice(0, 1) + ' 예상', a: 0, b: vEnd, kind: 'end', note: FMT.srate(+s.플레지증감률) }
+    ];
+    const W = Math.max(280, box.clientWidth), H = 260, m = { t: 28, r: 8, b: 36, l: 8 };
+    const x = d3.scaleBand().domain(steps.map(d => d.n)).range([m.l, W - m.r]).padding(0.28);
+    const y = d3.scaleLinear().domain([0, v0 * 1.12]).range([H - m.b, m.t]);
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', s.시안 + ' 후원 약정 감소 단계');
+    svg.append('g').selectAll('line').data(y.ticks(4)).join('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', d => y(d)).attr('y2', d => y(d)).attr('stroke', 'var(--color-border-line)').attr('stroke-dasharray', '2 3');
+    steps.forEach((d, i) => { if (i < steps.length - 1) svg.append('line').attr('x1', x(d.n) + x.bandwidth()).attr('x2', x(steps[i + 1].n)).attr('y1', y(d.b)).attr('y2', y(d.b)).attr('stroke', 'var(--color-fg-muted)').attr('stroke-dasharray', '3 2'); });
+    const g = svg.append('g').selectAll('g').data(steps).join('g');
+    g.append('rect').attr('x', d => x(d.n)).attr('width', x.bandwidth()).attr('y', d => y(Math.max(d.a, d.b))).attr('height', d => Math.max(1, Math.abs(y(d.a) - y(d.b)))).attr('rx', 4)
+      .attr('fill', d => d.kind === 'total' ? 'var(--color-fg-muted)' : d.kind === 'end' ? '#F37021' : 'var(--color-bad)').attr('fill-opacity', d => d.kind === 'delta' ? 0.75 : 1)
+      .on('mousemove', (ev, d) => showTip(box, ev, [d.n + ' · ' + (d.kind === 'delta' ? FMT.sman(d.b - d.a) : F(d.b)) + '건', d.note])).on('mouseleave', () => { const t = box.querySelector('.tip'); if (t) t.style.opacity = 0; });
+    g.append('text').attr('x', d => x(d.n) + x.bandwidth() / 2).attr('y', d => y(Math.max(d.a, d.b)) - 8).attr('text-anchor', 'middle').attr('font-size', 13).attr('font-weight', 800)
+      .attr('fill', d => d.kind === 'delta' ? 'var(--color-bad)' : 'var(--color-fg)').text(d => d.kind === 'delta' ? FMT.sman(d.b - d.a) : F(d.b));
+    g.append('text').attr('x', d => x(d.n) + x.bandwidth() / 2).attr('y', H - m.b + 18).attr('text-anchor', 'middle').attr('font-size', 12).attr('font-weight', 700).attr('fill', 'var(--color-fg)').text(d => d.n);
+  }
+
+  document.querySelectorAll('#wf-pick button').forEach(bn => bn.addEventListener('click', () => { wfKey = bn.dataset.k; document.querySelectorAll('#wf-pick button').forEach(o => o.setAttribute('aria-pressed', String(o === bn))); drawWf(); }));
+
+  dash.onData(() => {
+    fill();
+    drawWf();
+    table('#t-sian', 'sian_calc', ['시안', '시나리오', '상태', '동의율', 'DB', '플레지', '플레지증감률', '알림톡비용만원', '가정'], {
+      상태: { f: v => v === '확정' ? '실적' : '예상' }, 동의율: { f: v => FMT.pct(+v), r: 1 }, DB: { f: v => F(+v), r: 1 }, 플레지: { f: v => F(+v), r: 1 },
+      플레지증감률: { f: (v, row) => row.키 === 's1' ? '기준' : FMT.srate(+v), r: 1 }, 알림톡비용만원: { f: v => F(+v), r: 1 }
+    }, (tr, row) => { tr.dataset.key = row.키; if (row.키 === 's2-mid') tr.classList.add('now'); });
+    table('#t-prom', 'promises', ['번호', '약속', '출처', '영역'], {}, (tr, row) => { tr.dataset.key = String(row.번호); });
+  });
+})();
+</script>
+
+</div></body></html>
