@@ -11,7 +11,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 </style>
 <script src="d3.min.js"></script>
 <script>
-window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후원자": 15031, "만원기준": 31415, "기대후원금억_1to10": 19.8, "만원기준_1to10": 27911, "유지율6": 0.616}], "sian_scen": [{"키": "s1", "시안": "① 기존", "시나리오": "2026 실적", "구성": "2026 용지 그대로(선택 동의 묶음) + 접수 알림톡", "상태": "확정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": null, "확인탈락률": 0, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 공식 KPI(수거 202,116 · 후원 동의 156,623 · 후원자 15,031 · 1만원 기준 31,415)"}, {"키": "s2-opt", "시안": "② 현행 + 선택 동의 분리", "시나리오": "낙관", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.72, "확인탈락률": 0.02, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 72% · 콜 확인 탈락 2% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s2-mid", "시안": "② 현행 + 선택 동의 분리", "시나리오": "중간", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.65, "확인탈락률": 0.05, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 65% · 콜 확인 탈락 5% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s2-con", "시안": "② 현행 + 선택 동의 분리", "시나리오": "보수", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.55, "확인탈락률": 0.08, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 55% · 콜 확인 탈락 8% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s3-opt", "시안": "③ 알림톡 추가", "시나리오": "낙관", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.6, "진입자동의률": 0.8, "후원동의율": 0.4416, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 60% · 진입자 동의 80% · 리마인드·완료 알림톡 1인당 1건 추가"}, {"키": "s3-mid", "시안": "③ 알림톡 추가", "시나리오": "중간", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.5, "진입자동의률": 0.75, "후원동의율": 0.345, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 50% · 진입자 동의 75% · 리마인드·완료 알림톡 1인당 1건 추가"}, {"키": "s3-con", "시안": "③ 알림톡 추가", "시나리오": "보수", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.4, "진입자동의률": 0.65, "후원동의율": 0.2392, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 40% · 진입자 동의 65% · 리마인드·완료 알림톡 1인당 1건 추가"}], "promises": [{"번호": 1, "약속": "안내물에 주최·운영 / 인증 / 후원 역할 구분 표기", "출처": "1차 답변", "영역": "인쇄물", "D안반영": "리플릿 개편"}, {"번호": 2, "약속": "자율 참여 원칙, 미참여 학생 불이익 없음 명시", "출처": "1·2차 답변", "영역": "인쇄물", "D안반영": "리플릿·꿈엽서 용지"}, {"번호": 3, "약속": "'15명 이상 제출 시' 표현을 교육활동 격려 방식으로 수정", "출처": "1·2차 답변", "영역": "인쇄물·운영", "D안반영": "학급이벤트 기준·문구"}, {"번호": 4, "약속": "연필 문구가 1:1 매칭으로 오인되지 않도록 수정", "출처": "1차 내부 대응 메모", "영역": "인쇄물", "D안반영": "리플릿 개편"}, {"번호": 5, "약속": "필수·선택 동의의 문구와 시각 구분", "출처": "2차 답변", "영역": "인쇄물", "D안반영": "꿈엽서 용지 동의란"}, {"번호": 6, "약속": "법정대리인 작성·확인, 보호자 성명·관계·서명 보완", "출처": "보호자 답변(9/18)", "영역": "인쇄물", "D안반영": "꿈엽서 용지 보호자란"}, {"번호": 7, "약속": "접수 알림톡에서 동의 내용 확인·정정·신고", "출처": "보호자 답변(9/18)", "영역": "시스템", "D안반영": "알림톡 확인 버튼"}, {"번호": 8, "약속": "직접 동의 미확인 시 나눔·후원 안내 제한", "출처": "보호자 답변(9/18)", "영역": "시스템·콜", "D안반영": "확인자 우선 콜, 미확인 시 DB 제외"}, {"번호": 9, "약속": "콜 시작 시 본인·직접 동의 확인, 녹취 점검 강화", "출처": "보호자 답변(9/18)", "영역": "콜", "D안반영": "콜 첫머리 스크립트·샘플링"}]};
+window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후원자": 15031, "만원기준": 31415, "기대후원금억_1to10": 19.8, "만원기준_1to10": 27911, "유지율6": 0.616}], "sian_scen": [{"키": "s1", "시안": "① 26년 현행", "시나리오": "2026 실적", "구성": "2026 용지 그대로(선택 동의 묶음) + 접수 알림톡", "상태": "확정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": null, "확인탈락률": 0, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 공식 KPI(수거 202,116 · 후원 동의 156,623 · 후원자 15,031 · 1만원 기준 31,415)"}, {"키": "s2-opt", "시안": "② 선택 동의 분리", "시나리오": "낙관", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.72, "확인탈락률": 0.02, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 72% · 콜 확인 탈락 2% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s2-mid", "시안": "② 선택 동의 분리", "시나리오": "중간", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.65, "확인탈락률": 0.05, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 65% · 콜 확인 탈락 5% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s2-con", "시안": "② 선택 동의 분리", "시나리오": "보수", "구성": "1안 용지(항목별 동의 + 전체 동의 강조) + 기존 접수 알림톡 + 콜 첫머리 보호자 확인", "상태": "추정", "도달률": null, "진입률": null, "진입자동의률": null, "후원동의율": 0.55, "확인탈락률": 0.08, "추가알림톡_인당": 0, "알림톡단가원": 9, "가정": "2026 실적 비율(동의자 중 후원 전환 9.6%, 후원자 1명당 1만원 기준 2.09건) 유지 · 동의율은 구분 동의로 바뀐 뒤의 가정값(실측 아님) · 후원 동의율 55% · 콜 확인 탈락 8% · 추가 비용 없음(문구 수정은 기존 인쇄비 안)"}, {"키": "s3-opt", "시안": "③ 알림톡으로 선택 동의 취합", "시나리오": "낙관", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.6, "진입자동의률": 0.8, "후원동의율": 0.4416, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 60% · 진입자 동의 80% · 리마인드·완료 알림톡 1인당 1건 추가"}, {"키": "s3-mid", "시안": "③ 알림톡으로 선택 동의 취합", "시나리오": "중간", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.5, "진입자동의률": 0.75, "후원동의율": 0.345, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 50% · 진입자 동의 75% · 리마인드·완료 알림톡 1인당 1건 추가"}, {"키": "s3-con", "시안": "③ 알림톡으로 선택 동의 취합", "시나리오": "보수", "구성": "2안 용지(필수 동의만) + 확인 알림톡에서 정보 수정·모두 동의·항목별 선택", "상태": "추정", "도달률": 0.92, "진입률": 0.4, "진입자동의률": 0.65, "후원동의율": 0.2392, "확인탈락률": 0.01, "추가알림톡_인당": 1.0, "알림톡단가원": 9, "가정": "알림톡 도달 92% × 확인 페이지 진입률 × 진입자의 후원 안내 동의율 · 2026 전환 비율 유지 · 알림톡 단가 9원(추정, 계약 단가 확인 필요) · 확인 페이지 개발비는 견적 전이라 제외 · 진입률 40% · 진입자 동의 65% · 리마인드·완료 알림톡 1인당 1건 추가"}], "promises": [{"번호": 1, "약속": "안내물에 주최·운영 / 인증 / 후원 역할 구분 표기", "출처": "1차 답변", "영역": "인쇄물", "D안반영": "리플릿 개편"}, {"번호": 2, "약속": "자율 참여 원칙, 미참여 학생 불이익 없음 명시", "출처": "1·2차 답변", "영역": "인쇄물", "D안반영": "리플릿·꿈엽서 용지"}, {"번호": 3, "약속": "'15명 이상 제출 시' 표현을 교육활동 격려 방식으로 수정", "출처": "1·2차 답변", "영역": "인쇄물·운영", "D안반영": "학급이벤트 기준·문구"}, {"번호": 4, "약속": "연필 문구가 1:1 매칭으로 오인되지 않도록 수정", "출처": "1차 내부 대응 메모", "영역": "인쇄물", "D안반영": "리플릿 개편"}, {"번호": 5, "약속": "필수·선택 동의의 문구와 시각 구분", "출처": "2차 답변", "영역": "인쇄물", "D안반영": "꿈엽서 용지 동의란"}, {"번호": 6, "약속": "법정대리인 작성·확인, 보호자 성명·관계·서명 보완", "출처": "보호자 답변(9/18)", "영역": "인쇄물", "D안반영": "꿈엽서 용지 보호자란"}, {"번호": 7, "약속": "접수 알림톡에서 동의 내용 확인·정정·신고", "출처": "보호자 답변(9/18)", "영역": "시스템", "D안반영": "알림톡 확인 버튼"}, {"번호": 8, "약속": "직접 동의 미확인 시 나눔·후원 안내 제한", "출처": "보호자 답변(9/18)", "영역": "시스템·콜", "D안반영": "확인자 우선 콜, 미확인 시 DB 제외"}, {"번호": 9, "약속": "콜 시작 시 본인·직접 동의 확인, 녹취 점검 강화", "출처": "보호자 답변(9/18)", "영역": "콜", "D안반영": "콜 첫머리 스크립트·샘플링"}]};
 (function(){
   const calcs = {}, subs = [];
   function get(id){ if (window.__DATA[id]) return {status:'ok', data: window.__DATA[id]}; if (calcs[id]) { if (!calcs[id].v) { const c = calcs[id]; c.v = c.fn.apply(null, c.inputs.map(i => get(i).data)); } return {status:'ok', data: calcs[id].v}; } return {status:'missing', data: []}; }
@@ -20,22 +20,22 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
 })();
 </script></head><body><div id="dash-root">
 <style>
-.cv{--o:#F37021;--o2:rgba(243,112,33,.10);--o3:#C2551A;font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',var(--font-anthropic-sans),sans-serif;color:var(--color-fg);display:flex;flex-direction:column;gap:40px;line-height:1.6;font-size:15px}
+.cv{--o:#F37021;--o2:rgba(243,112,33,.10);--o3:#C2551A;font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',var(--font-anthropic-sans),sans-serif;color:var(--color-fg);display:flex;flex-direction:column;gap:26px;line-height:1.55;font-size:14.5px}
 .cv *{box-sizing:border-box}
-.cv h1{font-size:26px;font-weight:800;margin:0;line-height:1.35;text-wrap:balance}
+.cv h1{font-size:22px;font-weight:800;margin:0;line-height:1.35;text-wrap:balance}
 .cv h2{font-size:20px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:10px}
 .cv h2 .n{width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;font-size:14px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .cv h3{font-size:16px;font-weight:800;margin:0 0 6px}
 .cv p{margin:0}
 .cv .muted{color:var(--color-fg-muted);font-size:13px}
 .cv .card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:14px;padding:18px 20px;min-width:0}
-.cv .hero{background:var(--o2);border:2px solid var(--o);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.cv .hero{background:var(--o2);border:2px solid var(--o);border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:10px}
 .cv .hero .eb{color:var(--o3);font-weight:800;font-size:13px}
 .cv .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:12px}
 .cv .kpi{background:var(--color-panel);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;border:1px solid var(--color-border-line)}
 .cv .kpi.on{border:2px solid var(--o)}
 .cv .kpi .k{font-size:13px;font-weight:700;color:var(--color-fg-muted)}
-.cv .kpi .v{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.25}
+.cv .kpi .v{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.25}
 .cv .kpi .d{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums}
 .cv .kpi .s{font-size:12px;color:var(--color-fg-muted)}
 .cv .dn{color:var(--color-bad)}.cv .up{color:var(--color-ok)}.cv .flat{color:var(--color-fg-muted)}
@@ -109,17 +109,17 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
 .cv .side{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
 .cv .side .paper{flex:2.4 1 26rem;min-width:0}
 .cv .side .phone{flex:1 1 13rem;min-width:0;max-width:300px;margin:0 auto}
-.cv .sv{display:flex;flex-direction:column;gap:22px}
+.cv .sv{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .cv .svc{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:18px;overflow:hidden}
 .cv .svc.rec{border:2px solid var(--o)}
-.cv .svh{display:flex;gap:14px;align-items:center;padding:16px 22px;background:var(--o2);border-bottom:1px solid var(--color-border-line)}
+.cv .svh{display:flex;gap:12px;align-items:center;padding:10px 18px;background:var(--o2);border-bottom:1px solid var(--color-border-line)}
 .cv .svc:not(.rec) .svh{background:var(--color-bg)}
 .cv .svn{width:42px;height:42px;border-radius:12px;background:var(--o);color:#fff;font-size:22px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .cv .svc:not(.rec) .svn{background:var(--color-fg-muted)}
 .cv .svh b{font-size:19px;font-weight:800}
 .cv .svh p{margin:2px 0 0;font-size:14px;color:var(--color-fg-muted)}
-.cv .svb{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:22px;padding:22px;align-items:start}
-.cv .svb.three-col{grid-template-columns:minmax(0,2.2fr) minmax(0,.9fr) minmax(0,1fr)}
+.cv .svb{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;padding:16px 18px;align-items:start}
+.cv .svb.three-col{grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr) minmax(0,1fr)}
 @media (max-width:900px){.cv .svb,.cv .svb.three-col{grid-template-columns:minmax(0,1fr)}.cv .fig.ph{max-width:300px;margin:0 auto}}
 .cv .fig{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
 .cv .fig figcaption{font-size:12.5px;color:var(--color-fg-muted);text-align:center}
@@ -128,7 +128,7 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
 .cv .zoom:hover{border-color:var(--o)}
 .cv .zoom:focus-visible{outline:2px solid var(--o);outline-offset:3px}
 .cv ol.co{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:co}
-.cv ol.co li{counter-increment:co;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:10px;padding:12px 14px;border-radius:12px;background:var(--color-bg);border:1px solid var(--color-border-line)}
+.cv ol.co li{counter-increment:co;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:10px;padding:9px 12px;border-radius:12px;background:var(--color-bg);border:1px solid var(--color-border-line)}
 .cv ol.co li::before{content:counter(co);grid-row:span 2;width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
 .cv ol.co li b{font-size:15.5px;line-height:1.4}
 .cv ol.co li span{font-size:13px;color:var(--color-fg-muted);line-height:1.5}
@@ -138,28 +138,81 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
 .cv .lb[hidden]{display:none}
 .cv .lb img{max-width:min(1280px,100%);height:auto;border-radius:8px;background:#fff}
 .cv .lbx{position:fixed;top:14px;right:16px;font:inherit;font-weight:800;font-size:14px;border:0;border-radius:999px;padding:8px 16px;background:#fff;color:#1E1B19;cursor:pointer}
+.cv .totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:40;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;font-weight:800;border:0;border-radius:999px;padding:12px 18px;background:var(--o);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.18);cursor:pointer;text-decoration:none}
+.cv .totop:hover{background:var(--o3)}
+.cv .totop:focus-visible{outline:2px solid var(--o);outline-offset:3px}
+.cv .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:20px;align-items:start}
+.cv .fm{position:sticky;bottom:18px;height:0;align-self:stretch;z-index:45;margin-top:-26px;pointer-events:none}
+.cv .fm>*{pointer-events:auto}
+.cv .fm .fmb{position:absolute;right:0;bottom:0}
+.cv .fm .fmp{position:absolute;right:0;bottom:56px}
+.cv .fmb{font:inherit;font-size:14px;font-weight:800;border:0;border-radius:999px;padding:12px 20px;background:var(--o);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer}
+.cv .fmb:hover{background:var(--o3)}
+.cv .fmb:focus-visible,.cv .fmp a:focus-visible{outline:2px solid var(--o);outline-offset:3px}
+.cv .fmp{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.18);padding:10px;display:flex;flex-direction:column;gap:2px;min-width:230px}
+.cv .fmp[hidden]{display:none}
+.cv .fmp a{display:block;padding:9px 12px;border-radius:10px;color:var(--color-fg);text-decoration:none;font-size:14px;font-weight:700}
+.cv .fmp a:hover{background:var(--o2)}
+.cv .fmp a.home{background:var(--o);color:#fff;text-align:center;margin-bottom:4px}
+.cv .fmp a.ext{color:var(--o3)}
+.cv .fmh{font-size:11px;font-weight:800;color:var(--color-fg-muted);padding:8px 12px 2px}
+.cv .opts3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:12px}
+.cv .oc{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.cv .oc.rec{border:2px solid var(--o);box-shadow:0 4px 14px rgba(243,112,33,.14)}
+.cv .och{display:flex;gap:10px;align-items:center}
+.cv .och>div{flex:1;min-width:0}
+.cv .och b{display:block;font-size:17px;font-weight:800;line-height:1.3}
+.cv .och small{display:block;font-size:12px;color:var(--color-fg-muted)}
+.cv .ocn{width:38px;height:38px;flex-shrink:0;border-radius:50%;background:var(--color-fg-muted);color:#fff;font-size:20px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.cv .oc.rec .ocn{background:var(--o)}
+.cv .ocv{display:flex;flex-direction:column;background:var(--o2);border-radius:10px;padding:8px 12px}
+.cv .ocv .ocl{font-size:12px;font-weight:800;color:var(--o3)}
+.cv .ocv b{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.25}
+.cv .ocv small{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums}
+.cv ul.ocr{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.cv ul.ocr li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-top:1px solid var(--color-border-line);font-size:13.5px}
+.cv ul.ocr li span{color:var(--color-fg-muted)}
+.cv ul.ocr li b{font-variant-numeric:tabular-nums}
+.cv .ocx{font-size:12.5px;color:var(--color-fg-muted);margin:0}
+.cv .concl{background:var(--color-panel);border-left:4px solid var(--o);border-radius:8px;padding:10px 14px;font-size:14.5px}
+.cv .concl b{color:var(--o3);margin-right:6px}
 </style>
 
 <div class="cv">
 
   <header class="hero" id="top">
     <span class="eb">2027 꿈엽서그리기대회 · 보호자 동의 방식 결정</span>
-    <h1>② 현행 + 선택 동의 분리로 갑니다. 지금 용지 틀은 그대로 두고, 묶여 있던 선택 동의만 항목별로 나눕니다.</h1>
-    <p>2026 용지는 '후원 안내 전화' 동의가 다른 동의와 한 칸에 묶여 있어 그대로 쓸 수 없어요. 고친 두 안 가운데 ②가 <b>추가 비용 없이 후원 감소가 가장 적습니다.</b></p>
-    <div class="kpis">
-      <div class="kpi"><span class="k">2026 후원 약정 (확정)</span><span class="v"><span data-source="sian_calc" data-where="키=s1" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</span><span class="s">꿈엽서로 받은 후원 약정 건수</span></div>
-      <div class="kpi on"><span class="k">② 현행 + 선택 동의 분리 <span class="badge rec">추천</span> <span class="badge est">예상</span></span><span class="v"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</span><span class="d dn"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> · 추가 비용 없음</span></div>
-      <div class="kpi"><span class="k">③ 알림톡 추가 <span class="badge est">예상</span></span><span class="v"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</span><span class="d dn"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> · 알림톡 +<span data-source="sian_calc" data-where="키=s3-mid" data-field="비용증감만원" data-fmt="int" class="dash-skeleton">—</span>만원</span></div>
+    <h1>2027 보호자 동의, 세 가지 방식 중에서 고릅니다</h1>
+    <div class="opts3">
+      <div class="oc">
+        <div class="och"><span class="ocn">1</span><div><b>26년 현행</b><small>2026 용지 그대로</small></div><span class="badge fix">2026 실적</span></div>
+        <div class="ocv"><span class="ocl">후원 약정</span><b><span data-source="sian_calc" data-where="키=s1" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="flat">기준</small></div>
+        <ul class="ocr"><li><span>동의 비율</span><b><span data-source="sian_calc" data-where="키=s1" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b></li><li><span>추가 비용</span><b>없음</b></li><li><span>법 위반 위험</span><b class="dn">높음</b></li></ul>
+        <p class="ocx">27년에 바로 바꾸기 어려울 때의 선택지. 동의가 묶여 있어 민원이 다시 생길 수 있어요.</p>
+      </div>
+      <div class="oc rec">
+        <div class="och"><span class="ocn">2</span><div><b>선택 동의 분리</b><small>용지 틀은 그대로, 동의만 항목별로</small></div><span class="badge rec">추천</span></div>
+        <div class="ocv"><span class="ocl">후원 약정 <span class="badge est">예상</span></span><b><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="dn"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> (<span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감" data-fmt="sman" class="dash-skeleton">—</span>건)</small></div>
+        <ul class="ocr"><li><span>동의 비율</span><b><span data-source="sian_calc" data-where="키=s2-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b></li><li><span>추가 비용</span><b>없음</b></li><li><span>법 위반 위험</span><b class="up">낮음</b></li></ul>
+        <p class="ocx">법은 지키면서 후원 감소가 가장 적어요.</p>
+      </div>
+      <div class="oc">
+        <div class="och"><span class="ocn">3</span><div><b>알림톡으로 선택 동의 취합</b><small>용지엔 필수만, 나머지는 보호자 휴대폰에서</small></div></div>
+        <div class="ocv"><span class="ocl">후원 약정 <span class="badge est">예상</span></span><b><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="dn"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> (<span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감" data-fmt="sman" class="dash-skeleton">—</span>건)</small></div>
+        <ul class="ocr"><li><span>동의 비율</span><b><span data-source="sian_calc" data-where="키=s3-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b></li><li><span>추가 비용</span><b>+<span data-source="sian_calc" data-where="키=s3-mid" data-field="비용증감만원" data-fmt="int" class="dash-skeleton">—</span>만원</b></li><li><span>법 위반 위험</span><b class="up">가장 낮음</b></li></ul>
+        <p class="ocx">보호자가 직접 링크를 눌러야 해서 동의한 사람이 크게 줄어요.</p>
+      </div>
     </div>
+    <div class="concl"><b>추천 ②</b> 지금 용지 틀은 그대로 두고, 묶여 있던 선택 동의만 항목별로 나눠요. 추가 비용 없이 법을 지키면서 후원 감소가 가장 적습니다. <span class="muted">②③ 숫자는 예상치예요.</span></div>
   </header>
 
   <section id="sec-shots">
     <h2><span class="n">1</span>시안 보기 <span class="muted" style="font-weight:500">그림을 누르면 크게 보여요</span></h2>
     <div class="sv">
       <article class="svc rec">
-        <header class="svh"><span class="svn">②</span><div><b>현행 + 선택 동의 분리</b> <span class="badge rec">추천</span><p>용지 틀은 그대로, 동의만 항목별로 나눠요</p></div></header>
+        <header class="svh"><span class="svn">②</span><div><b>선택 동의 분리</b> <span class="badge rec">추천</span><p>용지 틀은 그대로, 동의만 항목별로 나눠요</p></div></header>
         <div class="svb">
-          <figure class="fig"><button type="button" class="zoom" data-img="img-s2" aria-label="② 용지 크게 보기"><img id="img-s2" alt="② 현행 + 선택 동의 분리 꿈엽서 뒷면 시안"></button><figcaption>꿈엽서 뒷면 위쪽 절반 (아래 절반은 그림 칸)</figcaption></figure>
+          <figure class="fig"><button type="button" class="zoom" data-img="img-s2" aria-label="② 용지 크게 보기"><img id="img-s2" alt="② 선택 동의 분리 꿈엽서 뒷면 시안"></button><figcaption>꿈엽서 뒷면 위쪽 절반 (아래 절반은 그림 칸)</figcaption></figure>
           <ol class="co">
             <li><b>동의를 항목별로 따로</b><span>필수 1개 + 선택 3개, 칸마다 체크해요</span></li>
             <li><b>'전체 동의' 한 칸</b><span>주황 띠로 강조해서 한 번에 체크할 수 있어요</span></li>
@@ -169,9 +222,9 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
         </div>
       </article>
       <article class="svc">
-        <header class="svh"><span class="svn">③</span><div><b>알림톡 추가</b><p>용지엔 필수 동의만, 나머지는 보호자 휴대폰에서 받아요</p></div></header>
+        <header class="svh"><span class="svn">③</span><div><b>알림톡으로 선택 동의 취합</b><p>용지엔 필수 동의만, 나머지는 보호자 휴대폰에서 받아요</p></div></header>
         <div class="svb three-col">
-          <figure class="fig"><button type="button" class="zoom" data-img="img-s3" aria-label="③ 용지 크게 보기"><img id="img-s3" alt="③ 알림톡 추가 꿈엽서 뒷면 시안"></button><figcaption>꿈엽서 뒷면 위쪽 절반</figcaption></figure>
+          <figure class="fig"><button type="button" class="zoom" data-img="img-s3" aria-label="③ 용지 크게 보기"><img id="img-s3" alt="③ 알림톡으로 선택 동의 취합 꿈엽서 뒷면 시안"></button><figcaption>꿈엽서 뒷면 위쪽 절반</figcaption></figure>
           <figure class="fig ph"><button type="button" class="zoom" data-img="img-talk" aria-label="알림톡 화면 크게 보기"><img id="img-talk" alt="접수 확인 알림톡 화면"></button><figcaption>접수 후 보호자 휴대폰</figcaption></figure>
           <ol class="co">
             <li><b>용지엔 필수 동의 1개</b><span>글씨 칸이 커져서 쓰기 쉬워요</span></li>
@@ -188,43 +241,12 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
     <div class="lb" id="lb" hidden><button type="button" class="lbx" aria-label="닫기">닫기 ✕</button><img id="lb-img" alt=""></div>
   </section>
 
-  <section id="sec-compare">
-    <h2><span class="n">2</span>세 가지 안 비교 <span class="muted" style="font-weight:500">2026년 실적과 비교</span></h2>
-    <div class="three">
-      <div class="card opt">
-        <div class="hd"><b>① 2026 그대로</b><span class="badge fix">2026 실적</span></div>
-        <p class="what">용지를 바꾸지 않아요. 하지만 동의가 묶여 있어 법에 맞지 않아 <b>쓸 수 없어요.</b></p>
-        <div class="row main"><span class="l">후원 약정</span><span class="r"><b><span data-source="sian_calc" data-where="키=s1" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="flat">기준</small></span></div>
-        <div class="row"><span class="l">후원 안내 동의한 보호자</span><span class="r"><b><span data-source="sian_calc" data-where="키=s1" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b><small class="flat"><span data-source="sian_calc" data-where="키=s1" data-field="DB" data-fmt="int" class="dash-skeleton">—</span>명</small></span></div>
-        <div class="row"><span class="l">추가 비용</span><span class="r"><b>없음</b></span></div>
-        <div class="row"><span class="l">법 위반 위험</span><span class="r"><b class="dn">높음</b></span></div>
-      </div>
-      <div class="card opt rec">
-        <div class="hd"><b>② 현행 + 선택 동의 분리</b><span class="badge rec">추천</span><span class="badge est">예상</span></div>
-        <p class="what">용지 틀·운영은 그대로, 동의만 항목별로 나누고 콜 첫마디에 보호자인지 확인해요.</p>
-        <div class="row main"><span class="l">후원 약정</span><span class="r"><b><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="dn"><span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> (<span data-source="sian_calc" data-where="키=s2-mid" data-field="플레지증감" data-fmt="sman" class="dash-skeleton">—</span>건)</small></span></div>
-        <div class="row"><span class="l">후원 안내 동의한 보호자</span><span class="r"><b><span data-source="sian_calc" data-where="키=s2-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b><small class="flat"><span data-source="sian_calc" data-where="키=s2-mid" data-field="DB" data-fmt="int" class="dash-skeleton">—</span>명</small></span></div>
-        <div class="row"><span class="l">추가 비용</span><span class="r"><b>없음</b><small class="flat">문구 수정은 기존 인쇄비 안</small></span></div>
-        <div class="row"><span class="l">법 위반 위험</span><span class="r"><b class="up">낮음</b></span></div>
-      </div>
-      <div class="card opt">
-        <div class="hd"><b>③ 알림톡 추가</b><span class="badge est">예상</span></div>
-        <p class="what">용지엔 필수 동의만, 나머지는 보호자 휴대폰 알림톡에서 받아요.</p>
-        <div class="row main"><span class="l">후원 약정</span><span class="r"><b><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지" data-fmt="int" class="dash-skeleton">—</span>건</b><small class="dn"><span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감률" data-fmt="srate" class="dash-skeleton">—</span> (<span data-source="sian_calc" data-where="키=s3-mid" data-field="플레지증감" data-fmt="sman" class="dash-skeleton">—</span>건)</small></span></div>
-        <div class="row"><span class="l">후원 안내 동의한 보호자</span><span class="r"><b><span data-source="sian_calc" data-where="키=s3-mid" data-field="동의율" data-fmt="pct" class="dash-skeleton">—</span></b><small class="flat"><span data-source="sian_calc" data-where="키=s3-mid" data-field="DB" data-fmt="int" class="dash-skeleton">—</span>명</small></span></div>
-        <div class="row"><span class="l">추가 비용</span><span class="r"><b>+<span data-source="sian_calc" data-where="키=s3-mid" data-field="비용증감만원" data-fmt="int" class="dash-skeleton">—</span>만원</b><small class="flat">알림톡 · 개발비 별도</small></span></div>
-        <div class="row"><span class="l">법 위반 위험</span><span class="r"><b class="up">가장 낮음</b></span></div>
-      </div>
-    </div>
-    <p class="note" style="margin-top:8px">②③의 숫자는 <b>예상치</b>예요(아래 3번의 가정으로 계산). 2027 접수가 시작되면 실제 숫자로 바꿔요.</p>
-  </section>
-
   <section id="sec-why">
-    <h2><span class="n">3</span>왜 후원이 줄어드나</h2>
+    <h2><span class="n">2</span>왜 후원이 줄어드나</h2>
     <div class="two">
       <div class="card">
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px"><h3 style="margin:0">후원 약정이 줄어드는 단계</h3>
-          <div class="seg" role="group" aria-label="볼 안" id="wf-pick"><button type="button" data-k="s2-mid" aria-pressed="true">② 현행 + 선택 동의 분리</button><button type="button" data-k="s3-mid" aria-pressed="false">③ 알림톡 추가</button></div></div>
+          <div class="seg" role="group" aria-label="볼 안" id="wf-pick"><button type="button" data-k="s2-mid" aria-pressed="true">② 선택 동의 분리</button><button type="button" data-k="s3-mid" aria-pressed="false">③ 알림톡 취합</button></div></div>
         <div class="chartbox" id="wf" data-source="sian_calc"></div>
       </div>
       <div class="card">
@@ -239,9 +261,10 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
     </div>
   </section>
 
+  <div class="duo">
   <section id="sec-todo">
-    <h2><span class="n">4</span>할 일</h2>
-    <ol class="steps">
+    <h2><span class="n">3</span>할 일</h2>
+    <ol class="steps" style="grid-template-columns:minmax(0,1fr)">
       <li><span class="w">지금</span>콜 첫마디에 보호자 본인인지 확인 (2026 남은 명단부터)</li>
       <li><span class="w">12월</span>② 용지·리플릿 문구 확정 → 법무 확인 → 인쇄</li>
       <li><span class="w">1월</span>동의 안내 QR 페이지를 홈페이지에 올리기</li>
@@ -250,7 +273,7 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
   </section>
 
   <section id="sec-legal">
-    <h2><span class="n">5</span>법무팀에 물어볼 것</h2>
+    <h2><span class="n">4</span>법무팀에 물어볼 것</h2>
     <div class="card">
       <ul class="pts">
         <li>'부모(법정대리인) 체크 + 콜 첫마디 확인'으로 14세 미만 보호자 동의 확인이 충분한지</li>
@@ -260,6 +283,7 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
       </ul>
     </div>
   </section>
+  </div>
 
   <section id="sec-more" style="display:flex;flex-direction:column;gap:10px">
     <h2><span class="n">+</span>참고 자료</h2>
@@ -283,6 +307,20 @@ window.__DATA = {"base_2026": [{"수거": 202116, "후원동의": 156623, "후�
     <div><b>시안 계산기</b><p class="muted" style="margin-top:2px">2026 꿈엽서에서 고칠 곳을 하나씩 체크하면, 시안과 2027 예상 후원 약정이 바로 바뀌어요. 동의 비율도 직접 조절해 볼 수 있어요.</p></div>
     <span class="go">계산기 열기 →</span>
   </a>
+    <nav class="fm" id="fm" aria-label="빠른 이동">
+    <div class="fmp" id="fmp" hidden>
+      <a href="#top" data-go="top" class="home">⌂ 첫 화면 (세 가지 안 비교)</a>
+      <span class="fmh">이 페이지</span>
+      <a href="#sec-shots" data-go="sec-shots">1 시안 보기</a>
+      <a href="#sec-why" data-go="sec-why">2 왜 후원이 줄어드나</a>
+      <a href="#sec-todo" data-go="sec-todo">3 할 일 · 4 법무 질문</a>
+      <a href="#sec-more" data-go="sec-more">+ 참고 자료</a>
+      <span class="fmh">다른 페이지</span>
+      <a class="ext" href="drafts.html">시안 원본 · 알림톡 ↗</a>
+      <a class="ext" href="calculator.html">시안 계산기 ↗</a>
+    </div>
+    <button type="button" class="fmb" id="fmb" aria-expanded="false" aria-controls="fmp">☰ 메뉴</button>
+  </nav>
 </div>
 
 <script src="img_s2.js"></script>
@@ -330,6 +368,11 @@ dash.calc('sian_calc', {
   const root = document.querySelector('.cv');
   const imgs = window.__cvImg || {};
   [['img-s2', 's2'], ['img-s3', 's3'], ['img-talk', 'talk']].forEach(([id, k]) => { const el = document.getElementById(id); if (el && imgs[k]) el.src = imgs[k]; });
+  const fmb = document.getElementById('fmb'), fmp = document.getElementById('fmp');
+  const setFm = open => { fmp.hidden = !open; fmb.setAttribute('aria-expanded', String(open)); fmb.textContent = open ? '✕ 닫기' : '☰ 메뉴'; };
+  fmb.addEventListener('click', () => setFm(fmp.hidden));
+  fmp.querySelectorAll('a[data-go]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = document.getElementById(a.dataset.go); if (t) t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); setFm(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !fmp.hidden) setFm(false); });
   const lb = document.getElementById('lb'), lbi = document.getElementById('lb-img');
   const closeLb = () => { lb.hidden = true; lbi.removeAttribute('src'); };
   document.querySelectorAll('.cv .zoom').forEach(b => b.addEventListener('click', () => { const src = document.getElementById(b.dataset.img).src; if (!src) return; lbi.src = src; lbi.alt = document.getElementById(b.dataset.img).alt; lb.hidden = false; lb.querySelector('.lbx').focus(); }));
